@@ -1,0 +1,13 @@
+name: Restart backend
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  runner:
+    runs-on: ubuntu-latest
+    steps:
+     - name: To wake up Backend
+       run: curl "https://backend-ibcomag.vercel.app/api/v1/books"
